@@ -2,8 +2,8 @@ import ProjectType from "../../components/projects/ProjectType";
 
 const KenalData: ProjectType = {
   name: "Kenal",
-  link: "",
-  github: "",
+  link: "https://kenal.vercel.app/",
+  github: "https://github.com/adimaralimuddin/kenal",
   description:
     "Kenal is a social media web app with full features that allows users to stay connected in realtime.",
   features: [

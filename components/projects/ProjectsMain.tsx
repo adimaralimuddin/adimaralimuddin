@@ -4,14 +4,19 @@ import TaskyData from "../../data/projects/tasky";
 import TokoData from "../../data/projects/toko";
 import Heading from "../elements/Heading";
 import ProjectItem from "./ProjectItem";
-export default function ProjectsMain() {
+import ProjectType from "./ProjectType";
+
+interface props {
+  onSelect: (proj: ProjectType) => void;
+}
+export default function ProjectsMain({ onSelect }: props) {
   return (
-    <div>
+    <div id="works ">
       <Heading title="WHAT I'VE BUILT" />
-      <ProjectItem project={KenalData} left={true} />
-      <ProjectItem project={TaskyData} dark={true} />
-      <ProjectItem project={TokoData} left={true} />
-      <ProjectItem project={LangoData} dark={true} />
+      <ProjectItem onSelect={onSelect} project={TaskyData} dark={true} />
+      <ProjectItem onSelect={onSelect} project={KenalData} left={true} />
+      <ProjectItem onSelect={onSelect} project={LangoData} dark={true} />
+      <ProjectItem onSelect={onSelect} project={TokoData} left={true} />
     </div>
   );
 }

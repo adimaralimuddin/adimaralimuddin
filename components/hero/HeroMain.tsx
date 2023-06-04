@@ -1,15 +1,45 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import Block from "../elements/Block";
 import Button from "../elements/Button";
 
 export default function HeroMain() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["end end", "end start"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const h1Y = useTransform(scrollYProgress, [0, 1], [0, 400]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
+  const x = useTransform(scrollYProgress, [0, 1], [0, 1000]);
   return (
-    <div className="flex flex-col items-center justify-center min-h-[89vh] relative ring-1d">
+    <motion.div
+      style={{ opacity, y: h1Y, scale }}
+      ref={ref}
+      className="flex flex-col items-center justify-center min-h-[70vh] sm:min-h-[89vh] relative p-[5%] w-fill "
+    >
       <div className="text-center z-10">
-        <h2 className="text-3xl">{"Hello! I'm Adi,"}</h2>
-        <h1 className="text-5xl font-bold">
+        <motion.h2
+          initial={{ x: 200 }}
+          animate={{ x: 0 }}
+          className="text-3xl sm:text-4xl"
+        >
+          {"Hello! I'm Adi,"}
+        </motion.h2>
+        <motion.h1
+          initial={{ y: 100, scale: 0.3, opacity: 0 }}
+          animate={{
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            transition: { duration: 0.8, type: "spring" },
+          }}
+          className="text-4xl sm:text-6xl font-bold"
+        >
           <span>a</span> Full Stack Developer
-        </h1>
-        <div className="text-xl flex gap-3 flex-wrap items-center justify-center p-2">
+        </motion.h1>
+        <div className="text-2xl flex gap-3 flex-wrap items-center justify-center p-2">
           <p>Ui/Ux Designer</p>
           <p>bs degree</p>
           <p></p>
@@ -19,8 +49,8 @@ export default function HeroMain() {
           {"-->"}
         </Button>
       </div>
-      <div className="h-[90px]"></div>
+      {/* <div className="h-[130px]"></div> */}
       <Block className=" left-[46%] z-[-1]d max-w-[50%] -top-14 " />
-    </div>
+    </motion.div>
   );
 }

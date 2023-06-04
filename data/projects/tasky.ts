@@ -2,8 +2,8 @@ import ProjectType from "../../components/projects/ProjectType";
 
 const TaskyData: ProjectType = {
   name: "Tasky",
-  github: "",
-  link: "",
+  github: "https://github.com/adimaralimuddin/tasky",
+  link: "https://tasky-web-seven.vercel.app/",
   description:
     "tasky is an online Flash Card Manager that focuses on providing dynamic data type and structure while being fast and intuitive and modern.",
   features: [

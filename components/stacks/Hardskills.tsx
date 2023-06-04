@@ -1,18 +1,38 @@
+import { motion } from "framer-motion";
 import StackLists from "./StackLists";
 
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.3 } },
+};
+
+const item = {
+  hidden: { opacity: 0, x: 200 },
+  show: { opacity: 1, x: 0, transition: { duration: 1 } },
+};
 export default function Hardskills() {
   return (
     <div className=" ">
-      <div className="flex gap-3 w-full max-w-5xl mx-auto justify-between">
+      <div className="flex flex-col-reverse lg:flex-row  gap-8 sm:gap-3 w-full max-w-5xl mx-auto justify-between">
         <Stacks />
 
-        <div className="flex flex-col flex-1  justify-center max-w-[40%]">
-          <h1 className="text-5xl font-bold pb-3">Hard Skills</h1>
-          <h2 className="text-3xl font-semiboldd">
-            I Equip With Cutting Edge Technologies to construct a stunning
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          className="flex flex-col flex-1  justify-center lg:max-w-[40%]"
+        >
+          <motion.h1
+            variants={item}
+            className="text-3xl sm:text-5xl font-bold pb-3"
+          >
+            Hard Skills
+          </motion.h1>
+          <motion.h2 variants={item} className="text-3xl font-semiboldd">
+            I Equip With Cutting Edge Technologies to construct Stunning
             Applications.
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
       </div>
     </div>
   );
@@ -20,7 +40,7 @@ export default function Hardskills() {
 
 function Stacks() {
   return (
-    <div className="flex-1 max-w-[60%] flex flex-col ">
+    <div className="flex-1 gap-3 sm:gap-0 sm:max-w-[60%] flex flex-col  ">
       <StackLists
         title="FRONTED"
         stacks={[
