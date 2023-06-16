@@ -117,7 +117,7 @@ export default function ProjectItem({ project, left, dark, onSelect }: Props) {
         {/* images */}
         <motion.div
           style={{ backgroundColor: theme?.primary }}
-          className="hidden md:flex  max-w-[350px] relative w-full h-full"
+          className="hidden md:flex  max-w-[450px] relative w-full h-full "
         >
           <motion.div
             style={{
@@ -138,46 +138,65 @@ export default function ProjectItem({ project, left, dark, onSelect }: Props) {
             }}
             className="flex justify-center items-center  "
           >
-            <Images />
+            <Images project={project} />
           </motion.div>
         </motion.div>
 
         {/* unages mobile */}
         <div className="md:hidden  ">
-          <Images />
+          <Images project={project} />
         </div>
       </motion.div>
     </motion.div>
   );
 }
 
-function Images() {
+function Images({ project }: { project: ProjectType }) {
   const [hovered, setHovered] = useState(false);
-
+  const name = project.name?.toLowerCase();
   return (
     <CardTilt
       onHover={() => setHovered(true)}
       onLeave={() => setHovered(false)}
-      className="shadow-lg "
+      className=" shadow-lg rounded-xl "
     >
-      <div className=" ">
+      <div className=" pro-img-container">
         <Image
-          className=" "
-          src={"/images/test2.png"}
+          className=""
+          src={`/images/projects/${name}/1.svg`}
           alt=""
           width={400}
           height={400}
         />
-        <Image
-          style={hovered ? { transform: "translateZ(30px)" } : undefined}
-          className="  absolute right-[-60px] bottom-[-50px] shadow-lg transition-all"
-          src={"/images/test2.png"}
-          alt=""
-          width={150}
-          height={150}
-        />
+        <ProImg name={name} num={2} hovered={hovered} />
+        <ProImg name={name} num={3} hovered={hovered} />
       </div>
     </CardTilt>
+  );
+}
+
+function ProImg({
+  name,
+  num,
+  hovered,
+}: {
+  name: string;
+  num: number;
+  hovered: boolean;
+}) {
+  return (
+    <Image
+      style={
+        hovered
+          ? { transform: `translateZ(${15 * num}px)`, border: "d2px solid red" }
+          : undefined
+      }
+      className=" pro-img absolute "
+      src={`/images/projects/${name}/${num}.svg`}
+      alt={name}
+      width={400}
+      height={400}
+    />
   );
 }
 

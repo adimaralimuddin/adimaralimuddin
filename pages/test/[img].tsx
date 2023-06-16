@@ -40,7 +40,7 @@ export default function TestImage() {
           </motion.h2>
         </div>
         <motion.div
-          layoutId={img}
+          layoutId={img?.toString()}
           className="w-[550px] min-h-[500px] ring-2 ring-red-400 "
         >
           <Image

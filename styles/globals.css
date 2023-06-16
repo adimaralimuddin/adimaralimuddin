@@ -32,6 +32,21 @@ html {
   perspective: 1000px;
   transform-style: preserve-3d;
 }
+.pro-img-container {
+  transform-style: preserve-3d;
+}
+.pro-img {
+  perspective: 1000px;
+  position: absolute;
+  transition: transform 0.3s;
+  top: 0px;
+  left: 0;
+  /* transform-style: preserve-3d; */
+}
+/* .pro-img:hover {
+  transform: translateZ(40px);
+  border: 1px solid red;
+} */
 .texy {
   transform: translateZ(40px);
 }
