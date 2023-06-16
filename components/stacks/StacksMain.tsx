@@ -6,10 +6,10 @@ import Softskills from "./Softskills";
 export default function StackMain() {
   return (
     <motion.div
-      id="skills  w-fill "
+      id="skills"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      className="p-[5%]"
+      className="p-[5%] w-fill"
     >
       <Heading title="MY SKILLSETS" />
       <Hardskills />

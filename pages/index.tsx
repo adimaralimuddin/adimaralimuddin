@@ -39,7 +39,7 @@ export default function Home() {
 
         {/* <CardTilt></CardTilt> */}
         <HeroMain />
-        <WorkMain />
+        {/* <WorkMain /> */}
         <ProjectsMain onSelect={onSelectProject} />
         <StackMain />
 

@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Block from "../elements/Block";
 import Button from "../elements/Button";
@@ -17,7 +18,7 @@ export default function HeroMain() {
     <motion.div
       style={{ opacity, y: h1Y, scale }}
       ref={ref}
-      className="flex flex-col items-center justify-center min-h-[70vh] sm:min-h-[89vh] relative p-[5%] w-fill "
+      className="flex flex-col items-center justify-center min-h-[85vh] sm:min-h-[89vh] relative p-[5%] w-fill "
     >
       <div className="text-center z-10">
         <motion.h2
@@ -40,14 +41,14 @@ export default function HeroMain() {
           <span>a</span> Full Stack Developer
         </motion.h1>
         <div className="text-2xl flex gap-3 flex-wrap items-center justify-center p-2">
-          <p>Ui/Ux Designer</p>
-          <p>bs degree</p>
+          <p>UI/UX Designer, Enthusiast & Passionate</p>
+          {/* <p>bs degree</p> */}
           <p></p>
         </div>
         <p>Scroll Down </p>
-        <Button className="w-full max-w-[150px] m-2 text-lg font-semibold ">
-          {"-->"}
-        </Button>
+        <button className="w-full max-w-[150px] m-2d text-[3rem] font-bold animate-bounce">
+          {"↓"}
+        </button>
       </div>
       {/* <div className="h-[130px]"></div> */}
       <Block className=" left-[46%] z-[-1]d max-w-[50%] -top-14 " />

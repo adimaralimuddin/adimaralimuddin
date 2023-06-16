@@ -16,6 +16,7 @@ const itemVariants = {
 export default function WorkMain() {
   return (
     <motion.div
+      id="works"
       // initial={{ x: 200 }}
       // whileInView={{
       //   x: 0,

@@ -9,12 +9,15 @@ export default function HeaderMain() {
   const [toped, setToped] = useState(true);
   const onScroll = () => {
     const top = document.body.getBoundingClientRect().top;
+
     if (top > x) {
+      console.log("yes");
       setShow(true);
     } else {
       setShow(false);
     }
     x = top;
+
     if (x == 0 || x > 0) {
       setToped(true);
     } else {
@@ -29,12 +32,10 @@ export default function HeaderMain() {
   return (
     <div
       className={
-        "transition-all  px-4  duration-300 bg-white dshadow-slate-900 shadow- sticky z-10 " +
+        "transition-all fixed w-full px-4  duration-300 bg-white  z-10 " +
         (open ? "  top-0 z-10 " : " flex") +
-        (show
-          ? "  top-0 shadow-lg py-3  "
-          : " top-[-70px] py-4 shadow-noned ") +
-        (toped && " ring-[5px]d shadow-none py-4")
+        (show ? " fixed top-0 shadow-lg py-3  " : " top-[-70px] py-4 ") +
+        (toped && "  shadow-none py-4")
       }
     >
       <div className="flex flex-wrap w-full max-w-5xl mx-auto px-3 justify-between z-10 ">
