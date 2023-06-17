@@ -7,12 +7,14 @@ const LangoData: ProjectType = {
   description:
     "Lango is a Language Learning Web App similar to doulingo. this app implements TPRS method to aquire language naturally.",
   features: [
-    "play-conversations",
-    "play-select",
-    "play-match",
+    "conversations",
+    "selection",
+    "rematching",
     "audio & images",
     "responsive",
-    "languages > levels > lessons",
+    "languages",
+    "levels",
+    "lessons",
   ],
   stacks: [
     "next Js",

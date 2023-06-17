@@ -1,14 +1,8 @@
-import {
-  AnimatePresence,
-  Variants,
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import useTheme from "../../store/themeStore";
+// import useTheme from "../../store/themeStore";
 import Button from "../elements/Button";
 import CardTilt from "../elements/CardTilt";
 import ProjectType from "./ProjectType";
@@ -20,11 +14,7 @@ type Props = {
   onSelect: (proj: ProjectType) => void;
 };
 export default function ProjectItem({ project, left, dark, onSelect }: Props) {
-  const width = 300;
-  const height = 300;
   const container = useRef<HTMLDivElement>(null);
-
-  const theme = useTheme();
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -38,69 +28,59 @@ export default function ProjectItem({ project, left, dark, onSelect }: Props) {
     transition: { duration: 0.7, type: "spring" },
   };
 
-  const containerY = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.5, 0.7, 1],
-    [100, 10, 10, 250, 0]
-  );
   const imgX = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.6, 1],
-    [-900, 0, 150, 800]
+    [0, 0.4, 0.6, 1],
+    [-900, 0, 0, 800]
   );
   const imgY = useTransform(
     scrollYProgress,
     [0, 0.3, 0.6, 1],
-    [200, 0, -80, -200]
+    [200, 0, 0, -200]
   );
+  const backS = useTransform(
+    scrollYProgress,
+    [0, 0.4, 0.6, 1],
+    [-900, 0, 0, 800]
+  );
+  const backX = useTransform(
+    scrollYProgress,
+    [0, 0.4, 0.6, 1],
+    [-900, 0, 0, 800]
+  );
+  const backY = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.6, 1],
+    [200, 0, 0, -200]
+  );
+
   const headerX = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.6, 1],
-    [600, 0, -100, -500]
-  );
-  const backOpac = useTransform(
-    scrollYProgress,
-    [0, 0.4, 0.7, 1],
-    [0, 1, 1, 0]
-  );
-  const backRingX = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.6, 1],
-    [800, 0, -150, -800]
-  );
-  const backRingY = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.6, 1],
-    [-200, 0, 80, 200]
+    [0, 0.4, 0.6, 1],
+    [800, 0, 0, -800]
   );
 
   return (
     <motion.div
-      // ref={container}
       className={
-        "  max-w-screen sm:bg-red-400d md:bg-green-400d lg:bg-pink-300d  ring-1d  min-h-[220vh]  sm:min-h-[200vh] md:min-h-[150vh] py-12  flex-col relative " +
+        "  min-h-[120vh] flex flex-col items-center snap-item" +
         (dark && " bg-slate-100 ")
       }
     >
-      {/* duv */}
       <motion.div
         ref={container}
-        style={{ y: containerY }}
         layoutId={project.name + "text"}
         className={
-          "flex ring-2d min-h-[170vh] sm:min-h-[160vh] md:min-h-[100vh] flex-col md:flex-row  items-center justify-evenly   mx-auto  max-w-6xl bg-red-500d  sticky  top-0   " +
-          // ""
-          (left
-            ? " md:flex-row-reverse md:justify-between  "
-            : " md:justify-center ")
+          " flex-1 flex flex-col md:flex-row  max-w-6xl " +
+          (left ? " md:flex-row-reverse   " : "  ")
         }
       >
         {/* header */}
         <motion.div
           style={{ x: headerX }}
-          className=" flex  md:max-w-[350px] dsm:self-stretch flex-col justify-center p-12 md:p-[2%]    z-10 bg-white "
+          className=" flex flex-1 gap-3 flex-col justify-center p-[5%] z-10 bg-white "
         >
-          <motion.h1 className="text-xl sm:text-3xl font-bold">
+          <motion.h1 className="text-xl sm:text-3xl font-extrabold text-font-header">
             {project?.name}
           </motion.h1>
           <motion.h2>{project?.description}</motion.h2>
@@ -111,21 +91,17 @@ export default function ProjectItem({ project, left, dark, onSelect }: Props) {
             <Stacks stacks={project?.stacks} />
           </motion.div>
           <Buttons {...project} />
-          {/* <button onClick={() => onSelect(project)}>open</button> */}
         </motion.div>
 
         {/* images */}
-        <motion.div
-          style={{ backgroundColor: theme?.primary }}
-          className="hidden md:flex  max-w-[450px] relative w-full h-full "
-        >
+        <motion.div className="hover:z-20 flex-1 relative flex flex-col">
           <motion.div
             style={{
-              scale: backOpac,
-              x: backRingX,
-              y: backRingY,
+              scale: backS,
+              x: backX,
+              y: backY,
             }}
-            className="absolute z-[-1] top-0 left-0  flex-1 w-full h-full"
+            className="absolute bg-green-400 z-[-1] top-0 left-0  flex-1  "
           ></motion.div>
           <motion.div
             layoutId={project.name}
@@ -136,16 +112,11 @@ export default function ProjectItem({ project, left, dark, onSelect }: Props) {
               damping: 20,
               duration: 0.7,
             }}
-            className="flex justify-center items-center  "
+            className="flex-1  flex justify-center items-center  p-3 "
           >
             <Images project={project} />
           </motion.div>
         </motion.div>
-
-        {/* unages mobile */}
-        <div className="md:hidden  ">
-          <Images project={project} />
-        </div>
       </motion.div>
     </motion.div>
   );
@@ -163,7 +134,7 @@ function Images({ project }: { project: ProjectType }) {
       <div className=" pro-img-container">
         <Image
           className=""
-          src={`/images/projects/${name}/1.svg`}
+          src={`/images/projects/${name}/1.${name == "toko" ? "png" : "svg"}`}
           alt=""
           width={400}
           height={400}
@@ -184,6 +155,7 @@ function ProImg({
   num: number;
   hovered: boolean;
 }) {
+  if (name == "toko") return null;
   return (
     <Image
       style={
@@ -203,11 +175,13 @@ function ProImg({
 function Features({ features }: { features: string[] }) {
   return (
     <div>
-      <h2 className="text-sm sm:text-base font-semibold">FEATURES</h2>
-      <div className="flex flex-wrap gap-1 py-2">
+      <h2 className="text-sm text-font-subtitle sm:text-base font-semibold">
+        FEATURES
+      </h2>
+      <div className="flex flex-wrap gap-2 py-2">
         {features?.map((feature) => (
           <div
-            className="text-sm sm:text-base px-2 rounded-md bg-slate-100"
+            className="text-sm sm:text-base px-2 rounded-md bg-slate-50 ring-1 ring-slate-200 text-slate-500"
             key={feature}
           >
             {feature}
@@ -221,11 +195,13 @@ function Features({ features }: { features: string[] }) {
 function Stacks({ stacks }: { stacks: string[] }) {
   return (
     <div>
-      <h2 className="text-sm sm:text-base font-semibold">TECHNOLOGY</h2>
+      <h2 className="text-font-subtitle text-sm sm:text-base font-semibold">
+        TECHNOLOGY
+      </h2>
       <div className="flex flex-wrap gap-1 py-2">
         {stacks?.map((feature) => (
           <div
-            className=" text-sm sm:text-base p-1 px-2 rounded-md bg-slate-600 text-white "
+            className=" text-sm sm:text-base p-1d px-2 rounded-md bg-secondary-light text-white "
             key={feature}
           >
             {feature}
@@ -241,12 +217,12 @@ function Buttons(project: ProjectType) {
     <div className="flex gap-2">
       <Button icon="eye">
         <Link href={project?.link} target="_blank">
-          👀 live{" "}
+          Live{" "}
         </Link>
       </Button>
       <Button icon="eye">
         <Link href={project?.github} target="_blank">
-          code
+          Code
         </Link>
       </Button>
       {/* <Button icon="eye">

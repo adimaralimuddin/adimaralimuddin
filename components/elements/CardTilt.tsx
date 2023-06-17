@@ -13,10 +13,10 @@ export default function CardTilt({
   onHover,
   onLeave,
 }: props) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [30, -30]);
-  const rotateY = useTransform(y, [100, -100], [-30, 30]);
+  // const x = useMotionValue(0);
+  // const y = useMotionValue(0);
+  // const rotateX = useTransform(y, [-100, 100], [30, -30]);
+  // const rotateY = useTransform(y, [100, -100], [-30, 30]);
 
   return (
     <div style={{ perspective: 2000 }} className={" " + className}>

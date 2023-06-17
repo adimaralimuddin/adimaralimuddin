@@ -11,7 +11,7 @@ interface props {
 }
 export default function ProjectsMain({ onSelect }: props) {
   return (
-    <div id="works " className="">
+    <div id="works" className="snap-container">
       <Heading title="PROJECTS" />
       <ProjectItem onSelect={onSelect} project={TaskyData} dark={true} />
       <ProjectItem onSelect={onSelect} project={KenalData} left={true} />

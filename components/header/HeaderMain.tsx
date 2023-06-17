@@ -32,7 +32,7 @@ export default function HeaderMain() {
   return (
     <div
       className={
-        "transition-all fixed w-full px-4  duration-300 bg-white  z-10 " +
+        "transition-all fixed w-full px-4  duration-300 bg-white  z-[15] " +
         (open ? "  top-0 z-10 " : " flex") +
         (show ? " fixed top-0 shadow-lg py-3  " : " top-[-70px] py-4 ") +
         (toped && "  shadow-none py-4")

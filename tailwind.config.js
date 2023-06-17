@@ -14,8 +14,17 @@ module.exports = {
     extend: {
       colors: {
         button: {
-          main: "#3C4A57",
+          main: "rgb(101,24,131)",
           "main-hover": "#5A6C7D",
+        },
+        primary: { main: "rgb(107,70,157)" },
+        secondary: {
+          main: "black",
+          light: "rgba(122,121,169,0.648)",
+        },
+        font: {
+          header: "#40008eb4",
+          subtitle: "rgb(86,56,151)",
         },
       },
       animation: {
