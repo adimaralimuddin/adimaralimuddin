@@ -134,7 +134,7 @@ function Images({ project }: { project: ProjectType }) {
       <div className=" pro-img-container">
         <Image
           className=""
-          src={`/images/projects/${name}/1.${name == "toko" ? "png" : "svg"}`}
+          src={`/images/projects/${name}/1.png`}
           alt=""
           width={400}
           height={400}
@@ -164,7 +164,7 @@ function ProImg({
           : undefined
       }
       className=" pro-img absolute "
-      src={`/images/projects/${name}/${num}.svg`}
+      src={`/images/projects/${name}/${num}.png`}
       alt={name}
       width={400}
       height={400}
