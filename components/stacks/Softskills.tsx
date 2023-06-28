@@ -6,7 +6,7 @@ const skills: string[] = [
   "Patience",
   "Passion & Enthusiast",
   "Adaptability & Eager to Learn New Things",
-  "Effective Communication in (English, Tagalog, and Indonesian)",
+  "Effective Communication in (English, Tagalog)",
   "Problem Solver",
 ];
 
@@ -37,8 +37,8 @@ export default function Softskills() {
             Soft Skills
           </motion.h1>
           <motion.h2 variants={item} className="text-3xl">
-            I Practice My Work inlined With Valuable Personality in working
-            Environment
+            {/* I Practice My Work inlined With Valuable Personality in working
+            Environment */}
             {/* Soft skills are very essentials in development. with soft skills,
             the team are able to accomplish tasks. */}
           </motion.h2>
