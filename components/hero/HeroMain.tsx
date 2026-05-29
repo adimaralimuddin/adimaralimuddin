@@ -24,7 +24,7 @@ export default function HeroMain() {
         <motion.h2
           initial={{ x: 200 }}
           animate={{ x: 0 }}
-          className="text-3xl font-bold md:text-4xl"
+          className="text-3xl font-bold md:text-4xl mb-1"
         >
           {"Hello! I'm Adi,"}
         </motion.h2>
@@ -36,9 +36,9 @@ export default function HeroMain() {
             scale: 1,
             transition: { duration: 0.8, type: "spring" },
           }}
-          className="text-4xl md:text-5xl lg:text-6xld font-extrabold"
+          className="text-4xl md:text-5xl lg:text-6xld font-bold"
         >
-          <span>a</span> Full Stack Developer
+          <span>a</span> Front-End Developer
         </motion.h1>
         <div className="text-xl sm:text-2xl flex gap-3 flex-wrap items-center justify-center p-2">
           <p>UI/UX Designer, Enthusiast & Passionate</p>

@@ -8,14 +8,13 @@ export default function ContactMain() {
   return (
     <div
       id="contact"
-      className=" w-fill  min-h-screen bg-slate-200 flex flex-col items-center justify-center p-4 py-12"
+      className=" w-fill  min-h-[15rem] bg-slate-200 flex flex-col items-center justify-center p-4 py-12"
     >
-      <h1 className="text-4xl font-bold py-3 text-center">
-        {/* {"Let's"} Make Awesome Things! */}
+      {/* <h1 className="text-4xl font-bold py-3 text-center">
         {"Let's"} Chat
-      </h1>
-      <div className="flex flex-col lg:flex-row items-center lg:items-stretch  w-full max-w-5xl py-5  gap-12 flex-wrap ring-1d">
-        <Form />
+      </h1> */}
+      <div className="flex flex-col content-center justify-center dlg:flex-row items-center lg:items-stretch  w-full max-w-5xl py-5  gap-12 flex-wrap ring-1d">
+        {/* <Form /> */}
         <ContactConnect />
       </div>
     </div>
@@ -45,7 +44,7 @@ function Form() {
             service,
             toMeTemplate,
             { username, message, email, hisemail },
-            publicId
+            publicId,
           );
           setSent(true);
           console.log(result.text);
@@ -53,7 +52,7 @@ function Form() {
         (error) => {
           setErrMessage(error.text);
           console.log(error.text);
-        }
+        },
       );
   };
 

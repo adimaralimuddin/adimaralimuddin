@@ -55,10 +55,10 @@ function Stacks() {
           "MaterialUi",
           "React-Query",
           "Zustand",
-          "PHP",
+          // "PHP",
           "Python",
           "Java",
-          "Ruby",
+          // "Ruby",
         ]}
       />
       <StackLists

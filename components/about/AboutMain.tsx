@@ -11,13 +11,13 @@ export default function AboutMain() {
   const containerScale = useTransform(
     scrollYProgress,
     [0, 0.4, 0.8, 1],
-    [0.5, 1, 1, 0.5]
+    [0.5, 1, 1, 0.5],
   );
 
   const containerOpac = useTransform(
     scrollYProgress,
     [0, 0.4, 0.6, 1],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   );
   return (
     <motion.div
@@ -33,7 +33,7 @@ export default function AboutMain() {
           Hi Again, {"I'm"} Adimar Alimuddin.
         </h1>
         <Statement className="pt-0 font-bold text-[2rem] sm:text-[1.9rem]">
-          A Full Stack Developer Based In The Philippines.
+          A Front-End Developer Based In The Philippines.
         </Statement>
         <Statement>
           {"I'm"} <Bold>Passionate</Bold> about Everything related to software
@@ -42,7 +42,7 @@ export default function AboutMain() {
         </Statement>
         <Statement>
           I <Bold>Love to turn ideas</Bold> into <Bold>real applications</Bold>,
-          and i build them with my <Bold>full potentials</Bold> to Achieve{" "}
+          and I built them with my <Bold>full potentials</Bold> to Achieve{" "}
           <Bold>Ideal Web Apps</Bold>.
         </Statement>
         <Statement>
